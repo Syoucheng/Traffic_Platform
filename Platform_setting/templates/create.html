@@ -1,0 +1,136 @@
+<?php
+$mindate = date("Y-m-d");
+$mintime = date("h:i");
+$min = $mindate."T".$mintime;
+$maxdate = date("Y-m-d", strtotime("+10 Days"));
+$maxtime = date("h:i");
+$max = $maxdate."T".$maxtime;
+?>
+<!-- 進場施工表單 -->
+<html>
+{%extends 'base.html'%}
+<head>
+<meta charset="UTF-8" />
+<title>安朔交控中心廠商施工申請單</title>
+</head>
+{% block content %}
+<form action="post_value.php" method="POST" enctype="multipart/form-data">
+<table   align = 'center' border=3 cellpadding=10>
+<caption>廠商施工申請單</caption>
+<tr  bgcolor=#cbf1bf>
+	<td>
+		<label>廠商名稱：</label>
+		<select name="vendor_name">
+			<option value=''> </option>
+			<option value="中興電工">中興電工</option>
+			<option value="華電聯網">華電聯網</option>
+			<option value="根基營造">根基營造</option>
+		</select>
+	</td>
+</tr>
+
+<tr>
+	<td>
+		<label>負責人:</label>
+		<input type="text" name="contact_person" id="contact_person"><br/>
+	</td>
+</tr>
+
+<tr>
+	<td>
+		<label>手機號碼：</label>
+		<input type="text" name="cellphone" id="cellphone"><br/>
+	</td>
+</tr>
+<tr>
+	<td>
+		<label>施工人數:</label>
+		<input type="number" name="person_number" id="person_number" min="0" max="100" step="1" value="1"><br/>
+	</td>
+</tr>
+
+<tr>
+	<td>
+		<label>施工車牌:</label>
+		<input type="text" name="car_number" id="car_number"><br/>
+	</td>
+</tr>
+
+<tr>
+	<td>
+		<label>施工位置:</label>
+		<input type="text" name="work_location" id="work_location"><br/>
+	</td>
+</tr>
+
+<tr>
+	<td>
+		<label>施工日期起:</label>
+		<input type="datetime-local" name="work_time" id="work_time"  min="<?php echo $min?>" max="<?php echo $max?>" >
+	</td>
+</tr>
+
+<tr>
+	<td>
+		<label>施工日期迄:</label>
+		<input type="datetime-local" name="work_time1" id="work_time1"> <br/>
+	</td>
+</tr>
+
+
+<tr>
+	<td>
+		<label>預計巡檢項目:</label>
+		<select name="inspection_items">
+		<option value="設備維修">設備維修</option>
+		<option value="設備保養">設備保養</option>
+		<option value="開會">開會</option>
+		</select>
+	</td>
+</tr>
+
+<tr>
+	<td>
+		<label>是否需要封路施工:</label>
+		<input type = "radio" name = "closure" value = "是">是
+		<input type = "radio" name = "closure" value = "否">否
+	</td>	
+</tr>
+
+<tr>
+	<td>
+		<label>封路路段:</label>
+		<select name="closure_range">
+		<option value="---">---</option>
+		<option value="北上線">北上線</option>
+		<option value="南下線">南下線</option>		
+		</select>
+		<select name="closure_direction">
+		<option value="---">---</option>
+		<option value="內車道">內車道</option>
+		<option value="外車道">外車道</option>	
+		<option value="雙車道">雙車道</option>			
+		</select>
+	</td>
+</tr>
+
+<tr>
+	<td>
+		<label>
+		<input type="file" name="my_file">
+	</td>	
+</tr>
+
+<tr >
+	<td>
+		<input type="hidden" name="action" value="add">
+		<input type="submit" name="button" value="送出資料">
+		<input type="reset" name="button2" value="重新填寫">
+	</td>
+</tr>
+
+</table>
+</form>
+
+{% endblock %}
+</html>

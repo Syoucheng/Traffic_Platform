@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+ <head>
+ 
+  <title>Employee Attendance</title>
+ </head>
+<body background="b.jpg">
+ <center>
+  <div align="right">
+   <button onclick="onSigninClick()">Signin</button>
+   <button onClick="onSignoutClick()">Signout</button>
+</div>
+ Month:
+  <select name="month" id="month" onchange="getMonth(this.value)">
+   <option value="">Select Month</option>
+   <option value="0">January</option>
+   <option value="1">February</option>
+   <option value="2">March</option>
+   <option value="3">April</option>
+   <option value="4">May</option>
+   <option value="5">June</option>
+   <option value="6">July</option>
+   <option value="7">August</option>
+   <option value="8">September</option>
+   <option value="9">October</option>
+   <option value="10">Novermber</option>
+   <option value="11">December</option>
+  </select>
+<table id="monData" border="" cellpadding="15">
+ <tr>
+  <th>日期</th>
+  <th>星期</th>
+  <th>周檢</th>
+  <th>雙周檢</th>
+  <th>月檢</th>
+  <th>季檢</th>
+  <th>半年</th>
+ </tr>
+</table>
+</center>
+<script type="text/javascript">
+ function onSigninClick(){
+    
+     var now = new Date();
+ var time = now.getHours() + ":" + now.getMinutes();
+ document.getElementById("month").value= now.getMonth()
+ getMonth(now.getMonth())
+ document.getElementById("signin" + now.getDate()).innerHTML = time;
+
+ }
+ function onSignoutClick(){
+     var now = new Date();
+     var time = now.getHours() + ":" + now.getMinutes();
+     document.getElementById("month").value= now.getMonth()
+     getMonth(now.getMonth())
+     document.getElementById("signout" + now.getDate()).innerHTML = time;
+ }
+ 
+ function get_days_in_month(month,year) {
+  return new Date(year, month, 0).getDate();
+ }
+
+function getMonth(selected_month){  
+ var current_year = new Date().getFullYear()
+ var selected_month = (parseInt(selected_month)+1)
+ if(month=="")
+  alert("Please select Month");
+ else{
+  var finTab="<tr><th>日期</th><th>星期</th><th>周檢</th><th>雙周檢</th><th>月檢</th><th>季檢</th><th>半年</th></tr>";
+  var days_in_month = get_days_in_month(selected_month,current_year);
+  //alert(days_in_month); 
+  for(i =1;i<=days_in_month;i++){
+    finTab = finTab + "<tr>";
+    finTab = finTab + "<td>"+i+"/" + selected_month   + "/" + current_year + "</td><td id=signin" + i + "></td><td id=signout" + i + "></td><td></td>";
+    finTab = finTab + "<tr>";
+  } 
+  document.getElementById("monData").innerHTML = finTab;
+ }  
+}    
+</script>     
+</body>
+</html>

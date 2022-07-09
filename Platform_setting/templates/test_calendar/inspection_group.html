@@ -1,0 +1,46 @@
+<?php
+include('load.php');
+<!doctype html>
+{% extends 'base.html' %}
+<html lang="en">
+  {% block content %}
+  <head>
+    <title>Calendar</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.5.3/css/bootstrap.min.css" rel='stylesheet'>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.css' rel='stylesheet'>
+    <link href='main.css' rel='stylesheet' />
+    <script src='main.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
+
+    <script>
+
+        $(document).ready(function(){
+            var calendar = $('#calendar').fullCalendar({
+                editable : true,
+                header:{
+                    left:'prev,next today',
+                    center:'title',
+                    right:'month,agendaWeek,agendaDay'
+                },
+                events:'calender_load_inspection.php', 
+            });
+
+        });
+
+    </script>
+  </head>
+  <body>
+    
+    <br />
+    <h2 align = 'center'><a href="#">機電設備巡檢組別</a></h2>
+    <br />
+    <div class="container">
+        <div id="calendar"></div>
+    </div>
+    {% endblock %}
+  </body>
+  ?>
+</html>

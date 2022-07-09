@@ -1,0 +1,115 @@
+<!--事件紀錄-->
+<html>
+    {%extends 'base.html'%}
+<head>
+    <link rel="stylesheet" href="templates.css">
+    <meta charset="UTF-8" />
+    <title>事件紀錄</title>
+</head>
+    <body>
+        {% block content %}
+        <form> 
+            <table   align = 'center' border=3 cellpadding=10 class="table table-striped-columns">
+            <tr>
+                <td>
+                    <h2 style="font-family:標楷體; background-color:#FFDC35">*基本資料*</h4>
+                </td>
+            </tr>
+            <tr>
+                <td>
+            <label>日期 : </label>
+                <input type="date" id="event_date" name="event_date">
+            <label>時間</label>
+                <input type="time" id="evnet_time" name="event_time">
+            <label>轄區</label>
+                <select name="local">
+                    <option value="無效資料">------</option>
+                    <option value="大武段">大武段</option>
+                    <option value="草埔森永隧道">草埔森永隧道</option>
+                </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                <label>方向 :</label>
+                    <input type="radio" value="北上線">北上線
+                    <input type="radio" value="南下線">南下線
+                    <input type="radio" value="全方向">全方向　　
+
+                <label>車道 :</label>
+                    <input type="radio" value="內車道">內車道
+                    <input type="radio" value="外車道">外車道
+                    <input type="radio" value="雙車道">雙車道
+                </td>
+            </tr>
+            <tr>
+                <td>
+            <div class="form-floating">
+                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                <label for="floatingTextarea">地點說明</label>
+              </div>
+            </td>
+            </tr>
+            <tr>
+                <td>
+                    <h2 style="font-family:標楷體; background-color:#FFDC35"">*事件說明*</h4>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                <label>偵知</label>
+                    <select name="detect">
+                        <option value="無效資料">------</option>
+                        <option value="test">test</option>
+                        <option value="test">test</option>
+                    </select>
+                <label>等級</label>
+                    <select name="grade">
+                        <option value="無效資料">------</option>
+                        <option value="1">一級</option>
+                        <option value="2">二級</option>
+                        <option value="3">三級</option>
+                    </select>
+                <label>分類</label>
+                    <select name="classification">
+                        <option value="無效資料">------</option>
+                        <option value="火災">火災</option>
+                        <option value="故障車">故障車</option>
+                        <option value="散落物">散落物</option>
+                    </select>
+                <label>類型</label>
+                    <select name="type">
+                        <option value="無效資料">------</option>
+                    </select>
+                <label>類別</label>
+                    <select name="category">
+                        <option value="無效資料">------</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>傷亡情形 :　</label>
+                    <label>死亡</label>
+                        <input type="text">
+                    <label>輕傷</label>
+                        <input type="text">
+                    <label>重傷</label>
+                        <input type="text">
+                </td>
+            </tr>
+            <tr>
+                <td>
+            <div class="form-floating">
+                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                <label for="floatingTextarea">原因</label>
+            </div>
+                </td>
+            </tr>
+        </table>
+        </form>
+
+        {% endblock %}
+        <table 
+    </body>
+</html>

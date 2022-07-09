@@ -1,0 +1,51 @@
+<!-- 隧道巡檢表單1-1-1 -->
+<!-- machine_form_one.html -->
+{% extends 'base_machine_select_form.html'%}
+{% block title%}隧道巡檢表單周檢1-1-1{%endblock%}
+{%block content%}
+<script type="text/javascript">
+    function setsubmit(){
+        if(machine_form.value == 0)
+        window.location = 'http://127.0.0.1:8000/base_machine_select_form/machine_form_one';
+        if(machine_form.valeu == 1)
+        window.location = 'http://127.0.0.1:8000/';
+        if(machine_form.value == 2)
+        window.location = 'http://127.0.0.1:8000/'
+        if(machine_form.value == 3)
+        window.location = 'http://127.0.0.1:8000/'
+    }
+</script>
+
+<label>巡檢表單選取為</label>
+<select name="machine_form" id="machine_form">
+    <optgroup label="雙周檢">
+        <option>表單</option>
+        <option value = "0">1-1-1</option>
+        <option value = "1">1-1-2</option>
+    </optgroup>
+    <optgroup label="月檢">
+        <option value="2">1-1-1</option>
+        <option value="3">1-1-2</option>
+        </optgroup>
+</select>
+<button onclick="setsubmit(this)">選擇</button>
+<label>填寫日期 : </label>
+<input id="date" type="date">
+<label>填寫人 : </label>
+<input id="text" type="text">
+<button>送出</button>
+
+<form>
+    <table>
+        <div style="text-align: center;color: rgb(64, 120, 170);">
+            <h3>1-1-1</h3>
+        </div>
+        <div style="text-align: center;">
+        <label>設備名稱</label>
+        <label>設備里程</label>
+        <label>設備位置</label>
+        </div>
+    </table>
+    {%for machine %}
+</form>
+{%endblock%}
